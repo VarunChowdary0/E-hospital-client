@@ -1,0 +1,52 @@
+-> Create Patient Register Form:
+    - Personal Information -> [ Fullname , DOB, marital Status,PhoneNo,mailAddress,PhysicalAddress etc., ]
+    - N * Emergency Contact Details -> [ Contact name , relation , Phone-numbers]
+    - N * Patient ID [ID Type , and INFO]
+    - N * Medical History [Condition ,Treatment,Notes,Date]
+
+-> Create Login Form:
+    - Users [ 
+                {
+                    Admin : Login and can control other users [ create doctor accounts,
+                                                                create Medical-lab-specialists accounts,
+                                                                create Pharmacists accounts,
+                                                                Able to update all user's passwords
+                                                              ] 
+                },
+                {
+                    Doctors : Login and Approve Appointments [
+                                                                Accept or reject Appointments,
+                                                                Add Diagnosis Report of Patient
+                                                             ]
+                },
+                {
+                    Pharmacists : Login and Maintain the
+                                  availability of stock [
+                                                            Add new Stock,
+                                                            Billing and updating the sold stock,
+                                                            Find and remove Expired stock
+                                                        ]
+                },
+                {
+                    Medical-lab-specialists : Login and mantain Reports [
+                                                                          Add new Reports,
+                                                                          Update Reports
+                                                                       ]
+                },
+                {
+                    Patient : Login [
+                                        Request Appointments,
+                                        View Reports,
+                                        Check doctors availability,
+                                        Pay Bills
+                                    ]
+                },
+                {
+                    Billers : Login and Billing [
+                                                    Prepare Bill,
+                                                    Bill Status,
+                                                    Pending Bills
+                                                ]
+                }
+            ]
+        
