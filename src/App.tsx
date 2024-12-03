@@ -5,6 +5,7 @@ import { BrowserRouter as Router,
           Routes,Route
  } from 'react-router-dom';
 import PatientRegistration from './pages/PatientRegistration';
+import LoginPage from './pages/LoginPage';
 
 const App:React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App:React.FC = () => {
         <Routes>
           <Route path='/' element={<div className=' text-3xl h-screen'>Home Page</div>}/>
           <Route path='/patient/registration' element={<PatientRegistration/>}/>
+          <Route path='/login' element={<LoginPage/>}/>
         </Routes>
       </Router>
     </>
