@@ -6,6 +6,7 @@ import { BrowserRouter as Router,
  } from 'react-router-dom';
 import PatientRegistration from './pages/PatientRegistration';
 import LoginPage from './pages/LoginPage';
+import DashBoard from './pages/DashBoard';
 
 const App:React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const App:React.FC = () => {
           <Route path='/' element={<div className=' text-3xl h-screen'>Home Page</div>}/>
           <Route path='/patient/registration' element={<PatientRegistration/>}/>
           <Route path='/login' element={<LoginPage/>}/>
+          <Route path='/dashboard' element={<DashBoard/>}/> 
         </Routes>
       </Router>
     </>

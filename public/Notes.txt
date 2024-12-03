@@ -50,3 +50,37 @@
                 }
             ]
         
+
+-> DashBoards :
+    {
+        Patient-DashBoard : options to perform user operations 
+                [
+                    Book Appointment,
+                    Medical History,
+                    My Reports,
+                    Billing Status,
+                    Checkups and tests : [
+                                            Full body,
+                                            blood test,
+                                            
+                                        ]
+                    Services :
+                                [
+                                    Psychiatry,
+                                    Pharmacy,
+                                    Radiology,
+                                    Dentistry,
+                                    Intensive care services,
+                                    Cardiology,
+                                    Gastroenterology,
+                                    Inpatient care,
+                                    Physical therapy,
+                                    Obstetrics and gynaecology,
+                                    Birthing care,
+                                    Diagnostic services,
+                                    Nursing,
+                                    Cardiology (interventional),
+                                    General medicine
+                                ] 
+                ]  
+    }

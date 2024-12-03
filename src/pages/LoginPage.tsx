@@ -84,7 +84,8 @@ const LoginPage: React.FC = () => {
                             <option value="biller">Biller</option>
                     </select>
 
-                    <button className="w-fit  p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                    <button className="w-fit  p-2 active:scale-90 transition-all
+                     bg-blue-500 text-white rounded hover:bg-blue-600">
                     Log In
                     </button>
                 </div>
