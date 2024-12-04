@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Input from '../widgets/Input';
-import Heading1 from '../widgets/Heading1';
+import Input from '../../widgets/Input';
+import Heading1 from '../../widgets/Heading1';
 
 type UserType = 'admin' | 'doctor' | 'patient' | 'pharmacist' | 'lab-specialist' | 'biller';
 

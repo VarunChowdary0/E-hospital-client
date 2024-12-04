@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import OperationImageIcon from '../icons/OperationImageIcon';
-import Menu from './Menu';
-import OverviewCard from '../widgets/OverviewCard';
+import OperationImageIcon from '../../icons/OperationImageIcon';
+import Menu from '../../components/Menu';
+import OverviewCard from '../../widgets/OverviewCard';
 
 const DoctorDashBoard = () => {
     const navigate = useNavigate();
@@ -16,7 +16,7 @@ const DoctorDashBoard = () => {
     // Sidebar Navigation Options
     const navigation:{ title: string, route: string }[] = [
       { title: "Dashboard Overview", route: "/doctor/dashboard" },
-      { title: "Manage Appointments", route: "/doctor/appointments/manage" },
+      { title: "Appointments", route: "/doctor/appointments" },
       { title: "Other Doctors", route: "/doctor/doctors" },
       { title: "Settings", route: "/doctor/settings" },
     ];

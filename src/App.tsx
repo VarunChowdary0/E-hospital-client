@@ -4,14 +4,14 @@ import React from 'react';
 import { BrowserRouter as Router,
           Routes,Route
  } from 'react-router-dom';
-import PatientRegistration from './pages/PatientRegistration';
-import LoginPage from './pages/LoginPage';
+import LoginPage from './pages/Registers/LoginPage';
 import RecentAppointments from './components/RecentAppointments';
-import DoctorLayout from './pages/DoctorLayout';
-import DoctorDashBoard from './components/DoctorDashBoard';
-import PatientLayOut from './pages/PatientLayOut';
-import PatientDashboard from './components/PatientDashboard';
+import DoctorLayout from './pages/LayOuts/DoctorLayout';
+import DoctorDashBoard from './pages/DashBoards/DoctorDashBoard';
+import PatientLayOut from './pages/LayOuts/PatientLayOut';
+import PatientDashboard from './pages/DashBoards/PatientDashboard';
 import Appointments from './pages/Appointments/Appointments';
+import PatientRegistration from './pages/Registers/PatientRegistration';
 
 const App:React.FC = () => {
   return (
@@ -25,8 +25,8 @@ const App:React.FC = () => {
             <Route path="dashboard" element={<DoctorDashBoard />} />
             <Route path="doctors" element={<div>All Doctors</div>} />
             <Route path='appointments/' element={<Appointments/>}>
-              <Route path="appointments/view" element={<RecentAppointments />} />
-              <Route path="appointments/manage" element={<div>Manage Appointments</div>} />
+              <Route path="view" element={<RecentAppointments />} />
+              <Route path="manage" element={<div>Manage Appointments</div>} />
             </Route>
             <Route path="medical-records" element={<div>Manage medical-records</div>} />
             <Route path="diagnosis" element={<div>Manage Diagnosis</div>} />

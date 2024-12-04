@@ -1,21 +1,39 @@
 import React from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import OverviewCard from '../../widgets/OverviewCard'
+import ManageIcon from '../../icons/Icons/ManageIcon';
 
-const Appointments = () => {
+const Appointments:React.FC = () => {
     const navigate = useNavigate();
     const data : {
         title: string,
         description : string,
-        icon : string,
+        icon : string | JSX.Element,
         route : string
-    }[] = [];
+    }[] = [
+        {
+            title: "Upcoming Appointments",
+            description: "Next appointment on Dec 5th with Dr. Smith",
+            icon: "https://cdn-icons-png.flaticon.com/512/3634/3634820.png",
+            route: "view",
+          },
+        { 
+            title: "Manage Appointments",
+            description : "Approve or Disapprove Appointments",
+            icon : 
+            <div className=' h-4 py-2 mb-7 scale-125 ml-7 '>
+                <ManageIcon color='#21d1bd'/>
+            </div> ,
+            route: "manage"
+        },
+    ];
     const handleNavigation = (route: string) => {
         navigate(route);
     };
   
     return (
-    <div>
+    <div >
+        <div className=' flex items-center justify-center w-full h-fit'>
         {
             data.map((ele,idx)=>
                 <OverviewCard 
@@ -25,6 +43,7 @@ const Appointments = () => {
                 onClick={() => handleNavigation(ele.route)}/>
             )
         }
+        </div>
         <Outlet/>
     </div>
   )

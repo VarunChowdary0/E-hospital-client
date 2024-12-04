@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import Menu from '../components/Menu';
+import Menu from '../../components/Menu';
 
 const DoctorLayout: React.FC = () => {
     const navigation:{ title: string, route: string }[] = [
         { title: "Dashboard Overview", route: "/doctor/dashboard" },
-        { title: "Manage Appointments", route: "/doctor/appointments/view" },
+        { title: "Appointments", route: "/doctor/appointments" },
         { title: "Other Doctors", route: "/doctor/doctors" },
         { title: "Profile", route: "/doctor/profile" },
       ];

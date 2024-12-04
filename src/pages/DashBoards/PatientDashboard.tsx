@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import OverviewCard from "../widgets/OverviewCard";
-import Menu from "./Menu";
-import OperationImageIcon from "../icons/OperationImageIcon";
+import OverviewCard from "../../widgets/OverviewCard";
+import Menu from "../../components/Menu";
+import OperationImageIcon from "../../icons/OperationImageIcon";
 
 interface currentProps{
   navigation:{ title: string, route: string }[];

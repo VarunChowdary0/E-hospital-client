@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import Personal_Info from '../components/Personal_Info'
-import EmergencyContact from '../components/EmergencyContact';
-import IdentificationDetails from '../components/IdentificationDetails';
-import MedicalHistory from '../components/MedicalHistory';
-import Slider from '../widgets/Slider';
+import Personal_Info from '../../components/Personal_Info';
+import EmergencyContact from '../../components/EmergencyContact';
+import IdentificationDetails from '../../components/IdentificationDetails';
+import MedicalHistory from '../../components/MedicalHistory';
+import Slider from '../../widgets/Slider';
+
 
 const PatientRegistration:React.FC = () => {
     const [currentPage,setPage] = useState<number>(0);
