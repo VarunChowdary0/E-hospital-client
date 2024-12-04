@@ -4,6 +4,7 @@ import SettingsIcon from '../icons/Icons/SettingsIcon';
 import UserIcon from '../icons/Icons/UserIcon';
 import OperationImageIcon from '../icons/OperationImageIcon';
 import HomeIcon from '../icons/Icons/MenuIcons/HomeIcon';
+import NotificationIcon from '../icons/Icons/NotificationIcon';
 
 interface naver {
     title : string ;
@@ -25,6 +26,14 @@ const Menu:React.FC <currentProps> = ({navigation,parent}) => {
             title : 'dashboard',
             route : "dashboard",
             icon : <HomeIcon color='white'/>
+        },
+        {
+            title : 'notification',
+            route : "notification",
+            icon : 
+            <div className=' fill-white'>
+                <NotificationIcon current color='white'/>
+            </div>
         },
         {
             title : 'appointments',
@@ -53,6 +62,14 @@ const Menu:React.FC <currentProps> = ({navigation,parent}) => {
             title : 'dashboard',
             route : "dashboard",
             icon : <HomeIcon color='white'/>
+        },
+        {
+            title : 'notification',
+            route : "notification",
+            icon : 
+            <div className=' fill-white'>
+                <NotificationIcon current color='white'/>
+            </div>
         },
         {
             title : 'settings',

@@ -33,6 +33,7 @@ const App:React.FC = () => {
             </Route>
             <Route path="medical-records" element={<div>Manage medical-records</div>} />
             <Route path="diagnosis" element={<div>Manage Diagnosis</div>} />
+            <Route path="notification" element={<div>Notifications</div>} />
             <Route path="profile" element={<DoctorProfile/>} />
             <Route path="settings" element={<div>Create Settings</div>} />
           </Route>
@@ -49,6 +50,7 @@ const App:React.FC = () => {
                     ]} />} />
             <Route path="doctors" element={<AllDoctors/>} />
             <Route path="appointments" element={<div>Create Appointements</div>} />
+            <Route path="notification" element={<div>Notifications</div>} />
             <Route path="medical-records" element={<div>Create medical-records</div>} />
             <Route path="billing" element={<div>Create billing</div>} />
             <Route path="doctors" element={<div>Create doctors</div>} />

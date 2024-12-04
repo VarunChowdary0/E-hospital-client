@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import OverviewCard from "../../widgets/OverviewCard";
 import OperationImageIcon from "../../icons/OperationImageIcon";
+import NotificationIcon from "../../icons/Icons/NotificationIcon";
 
 interface currentProps{
   navigation:{ title: string, route: string }[];
@@ -57,6 +58,9 @@ const PatientDashboard: React.FC<currentProps> = ({navigation}) => {
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold">Welcome, {patientName}!</h1>
           <div className="flex items-center space-x-4 max-sm:hidden">
+          <div onClick={()=>handleNavigation("/patient/notification")} className=' fill-gray-700 scale-150'>
+            <NotificationIcon color='white' current={true}/>
+          </div>
             <OperationImageIcon 
               height={38}
               width={38}

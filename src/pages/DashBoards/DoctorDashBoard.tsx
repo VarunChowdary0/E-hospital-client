@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import OperationImageIcon from '../../icons/OperationImageIcon';
 import Menu from '../../components/Menu';
 import OverviewCard from '../../widgets/OverviewCard';
+import NotificationIcon from '../../icons/Icons/NotificationIcon';
 
 const DoctorDashBoard = () => {
     const navigate = useNavigate();
@@ -50,6 +51,9 @@ const DoctorDashBoard = () => {
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Welcome, Dr.{patientName}!</h1>
         <div className="flex items-center space-x-4 max-sm:hidden">
+          <div onClick={()=>handleNavigation("/doctor/notification")} className=' fill-gray-700 scale-150'>
+            <NotificationIcon color='white' current={true}/>
+          </div>
           <OperationImageIcon 
             height={38}
             width={38}

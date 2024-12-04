@@ -33,7 +33,7 @@ const Appointments:React.FC = () => {
   
     return (
     <div className=' w-full py-7 px-7 max-sm:px-0'>
-        <div className=' text-3xl font-bold'>Appointments</div>
+        <div className=' max-sm:pl-7 text-3xl font-bold'>Appointments</div>
         <div className=' mt-10 flex gap-6 max-sm:px-7 w-full h-fit'>
         {
             data.map((ele,idx)=>

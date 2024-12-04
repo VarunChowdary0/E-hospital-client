@@ -11,6 +11,7 @@ const RecentAppointments: React.FC = () => {
     <div className="p-6 bg-gray-100 ">
       <h2 className="text-2xl font-bold text-gray-800 mb-6">Recent Appointments</h2>
       <div className="overflow-x-auto">
+       {appointments.length > 0 ?
         <table className="min-w-full bg-white shadow-md rounded-lg">
           <thead className="bg-blue-500 text-white">
             <tr>
@@ -34,6 +35,11 @@ const RecentAppointments: React.FC = () => {
             ))}
           </tbody>
         </table>
+        :
+          <div className=' w-full text-lg font-thin h-[100px] flex items-center justify-center'>
+          No requests appointemnts found !
+          </div>
+        }
       </div>
     </div>
   );

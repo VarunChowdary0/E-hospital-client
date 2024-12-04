@@ -41,49 +41,54 @@ const UpcomingAppointments: React.FC = () => {
     <div className="p-6  rounded-md">
       <h2 className="text-2xl font-bold text-gray-800 mb-6">Upcoming Appointments</h2>
       <div className="overflow-x-auto">
+        {appointments.length > 0 ?
         <table className="min-w-full bg-white shadow-md rounded-lg">
-          <thead className="bg-sky-700 text-white">
-            <tr>
-              <th className="px-6 py-3 text-left text-sm font-medium">Patient Name</th>
-              <th className="px-6 py-3 text-left text-sm font-medium">Date</th>
-              <th className="px-6 py-3 text-left text-sm font-medium">Time</th>
-              <th className="px-6 py-3 text-left text-sm font-medium">Reason</th>
-              <th className="px-6 py-3 text-center text-sm font-medium">Actions</th>
+        <thead className="bg-sky-700 text-white">
+          <tr>
+            <th className="px-6 py-3 text-left text-sm font-medium">Patient Name</th>
+            <th className="px-6 py-3 text-left text-sm font-medium">Date</th>
+            <th className="px-6 py-3 text-left text-sm font-medium">Time</th>
+            <th className="px-6 py-3 text-left text-sm font-medium">Reason</th>
+            <th className="px-6 py-3 text-center text-sm font-medium">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {appointments.map((appointment, index) => (
+            <tr
+              key={appointment.id}
+              className={`${
+                index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
+              } hover:bg-blue-100`}
+            >
+              <td className="px-6 py-4 text-sm text-gray-700">{appointment.patientName}</td>
+              <td className="px-6 py-4 text-sm text-gray-700">{appointment.date}</td>
+              <td className="px-6 py-4 text-sm text-gray-700">{appointment.time}</td>
+              <td className="px-6 py-4 text-sm text-gray-700">{appointment.reason}</td>
+              <td className="px-6 py-4 flex justify-center gap-4">
+                <button
+                  onClick={() => handleCancel(appointment.id)}
+                  className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => {
+                    setSelectedAppointment(appointment);
+                    setPostponeModal(true);
+                  }}
+                  className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600"
+                >
+                  Postpone
+                </button>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {appointments.map((appointment, index) => (
-              <tr
-                key={appointment.id}
-                className={`${
-                  index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
-                } hover:bg-blue-100`}
-              >
-                <td className="px-6 py-4 text-sm text-gray-700">{appointment.patientName}</td>
-                <td className="px-6 py-4 text-sm text-gray-700">{appointment.date}</td>
-                <td className="px-6 py-4 text-sm text-gray-700">{appointment.time}</td>
-                <td className="px-6 py-4 text-sm text-gray-700">{appointment.reason}</td>
-                <td className="px-6 py-4 flex justify-center gap-4">
-                  <button
-                    onClick={() => handleCancel(appointment.id)}
-                    className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    onClick={() => {
-                      setSelectedAppointment(appointment);
-                      setPostponeModal(true);
-                    }}
-                    className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600"
-                  >
-                    Postpone
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+          ))}
+        </tbody>
+      </table>:
+      <div className=' w-full text-lg font-thin h-[100px] flex items-center justify-center'>
+        No Appointemnts Found !
+      </div>
+        }
       </div>
 
       {/* Postpone Modal */}
