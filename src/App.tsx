@@ -15,13 +15,14 @@ import AllDoctors from './components/AllDoctors';
 import ManageAppointments from './pages/Appointments/ManageAppointments';
 import UpcomingAppointments from './pages/Appointments/UpCommingAppointments';
 import DoctorProfile from './pages/Profiles/DoctorProfile';
+import HomePage from './pages/HomePage';
 
 const App:React.FC = () => {
   return (
     <>
       <Router>
         <Routes>
-          <Route path='/' element={<div className=' text-3xl h-screen'>Home Page</div>}/>
+          <Route path='/' element={<HomePage/>}/>
           <Route path='/patient/registration' element={<PatientRegistration/>}/>
           <Route path='/login' element={<LoginPage/>}/>
           <Route path="/doctor/" element={<DoctorLayout />}>
