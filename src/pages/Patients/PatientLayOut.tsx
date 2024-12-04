@@ -6,7 +6,7 @@ const PatientLayOut:React.FC = () => {
     const navigation:{ title: string, route: string }[] = [
         { title: "Dashboard Overview", route: "dashboard" },
         { title: "Appointments", route: "appointments" },
-        { title: "Medical Records", route: "medical-records" },
+        { title: "Medical Records", route: "my-medical-records" },
         { title: "Billing", route: "billing" },
         { title: "Doctors", route: "doctors" },
         { title: "Settings", route: "settings" },

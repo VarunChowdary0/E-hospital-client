@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ReportRow from '../widgets/ReportRow';
+import ReportRow from '../../widgets/ReportRow';
 
 interface reportType {
     reportOf : string;
@@ -7,6 +7,8 @@ interface reportType {
     preparedAt : string;
     seen  : boolean
 }
+
+
 const RecentReports:React.FC = () => {
 
   // take data not seen or less than 3 days ; 
@@ -51,7 +53,7 @@ const RecentReports:React.FC = () => {
         <div className=' flex-1 flex-col gap-2 flex bg-black/0'>
           <div 
             className="p-4 max-sm:px-2 text-white font-semibold hover:cursor-pointer flex border rounded-lg 
-            shadow-md hover:shadow-lg transition h-[55px] cursor-pointer bg-gray-400">
+            shadow-md hover:shadow-lg transition h-[55px] cursor-pointer bg-gray-800">
             <div className=' px-5 truncate max-sm:px-1 text-center w-4/12'>Patient Name</div>
             <div className=' h-full w-[3px] bg-black'></div>
             <div className=' px-5 truncate max-sm:px-1 text-center w-3/12'>Report</div>

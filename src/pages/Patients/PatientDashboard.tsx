@@ -32,13 +32,13 @@ const PatientDashboard: React.FC<currentProps> = ({navigation}) => {
       title: "Recent Reports",
       description: "Blood Test results ready to view",
       icon: "https://cdn-icons-png.flaticon.com/512/2209/2209673.png",
-      route: "/patient/medical-records",
+      route: "/patient/my-medical-records",
     },
     {
       title: "Pending Bills",
-      description: "$300 outstanding",
+      description: " ₹ 2550 outstanding",
       icon: "https://cdn-icons-png.flaticon.com/512/1651/1651965.png",
-      route: "/patient/billing",
+      route: "/patient/pending-billing",
     },
     {
       title: "Health Tips",

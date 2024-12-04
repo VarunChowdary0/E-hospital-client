@@ -1,7 +1,8 @@
 import React from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
-import OverviewCard from '../../widgets/OverviewCard'
-import ManageIcon from '../../icons/Icons/ManageIcon';
+import OverviewCard from '../../../widgets/OverviewCard';
+import ManageIcon from '../../../icons/Icons/ManageIcon';
+
 
 const Appointments:React.FC = () => {
     const navigate = useNavigate();

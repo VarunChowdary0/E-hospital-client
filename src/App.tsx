@@ -5,18 +5,21 @@ import { BrowserRouter as Router,
           Routes,Route
  } from 'react-router-dom';
 import LoginPage from './pages/Registers/LoginPage';
-import DoctorLayout from './pages/LayOuts/DoctorLayout';
-import DoctorDashBoard from './pages/DashBoards/DoctorDashBoard';
-import PatientLayOut from './pages/LayOuts/PatientLayOut';
-import PatientDashboard from './pages/DashBoards/PatientDashboard';
-import Appointments from './pages/Appointments/Appointments';
+import DoctorLayout from './pages/Doctors/DoctorLayout';
+import DoctorDashBoard from './pages/Doctors/DoctorDashBoard';
+import PatientLayOut from './pages/Patients/PatientLayOut';
+import PatientDashboard from './pages/Patients/PatientDashboard';
 import PatientRegistration from './pages/Registers/PatientRegistration';
 import AllDoctors from './components/AllDoctors';
-import ManageAppointments from './pages/Appointments/ManageAppointments';
-import UpcomingAppointments from './pages/Appointments/UpCommingAppointments';
-import DoctorProfile from './pages/Profiles/DoctorProfile';
+import ManageAppointments from './pages/Doctors/Appointments/ManageAppointments';
+import UpcomingAppointments from './pages/Doctors/Appointments/UpCommingAppointments';
+import DoctorProfile from './pages/Doctors/DoctorProfile';
 import HomePage from './pages/HomePage';
-import RecentReports from './components/RecentReports';
+import RecentReports from './pages/Doctors/RecentReports';
+import MyReports from './pages/Patients/MyReports';
+import Appointments from './pages/Doctors/Appointments/Appointments';
+import PendingBills from './pages/Patients/PendingBills';
+import Billings from './pages/Patients/Billings';
 
 const App:React.FC = () => {
   return (
@@ -53,8 +56,9 @@ const App:React.FC = () => {
             <Route path="doctors" element={<AllDoctors/>} />
             <Route path="appointments" element={<div>Create Appointements</div>} />
             <Route path="notification" element={<div>Notifications</div>} />
-            <Route path="medical-records" element={<div>Create medical-records</div>} />
-            <Route path="billing" element={<div>Create billing</div>} />
+            <Route path="my-medical-records" element={<MyReports/>} />
+            <Route path="billing" element={<Billings/>} />
+            <Route path="pending-billing" element={<PendingBills/>} />
             <Route path="doctors" element={<div>Create doctors</div>} />
             <Route path="settings" element={<div>Create Settings</div>} />
             <Route path="profile" element={<div>Profile</div>} />
