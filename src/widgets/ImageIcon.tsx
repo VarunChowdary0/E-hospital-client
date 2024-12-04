@@ -1,20 +1,26 @@
-import React from 'react'
+import React from 'react';
 
-interface currentProps{
-    h : number,
-    w : number,
-    url : string ,
-    alt : string | ""
+interface CurrentProps {
+  h: number;
+  w: number;
+  url: string;
+  alt?: string; 
 }
-const ImageIcon:React.FC<currentProps> = (props) => {
+
+const ImageIcon: React.FC<CurrentProps> = (props) => {
   return (
-    <img
-        height={props.h}
-        width={props.w}
-        src={props.url}
-        alt=''
-      />
-  )
-}
+    <div
+      className="select-none"
+      style={{
+        backgroundImage: `url(${props.url})`, 
+        height: `${props.h}px`, 
+        width: `${props.w}px`, 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center', 
+      }}
+      aria-label={props.alt} 
+    />
+  );
+};
 
-export default ImageIcon
+export default ImageIcon;

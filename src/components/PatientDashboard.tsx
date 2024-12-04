@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import OverviewCard from "../widgets/OverviewCard";
+import Menu from "./Menu";
+import OperationImageIcon from "../icons/OperationImageIcon";
 
-const PatientDashboard: React.FC = () => {
+interface currentProps{
+  navigation:{ title: string, route: string }[];
+}
+const PatientDashboard: React.FC<currentProps> = ({navigation}) => {
   const navigate = useNavigate();
   const patientName = "Drake"; // Replace with dynamic data as needed
 
@@ -11,15 +16,9 @@ const PatientDashboard: React.FC = () => {
     navigate(route);
   };
 
+
   // Sidebar Navigation Options
-  const navigation = [
-    { title: "Dashboard Overview", route: "/dashboard" },
-    { title: "Appointments", route: "/appointments" },
-    { title: "Medical Records", route: "/medical-records" },
-    { title: "Billing", route: "/billing" },
-    { title: "Doctors", route: "/doctors" },
-    { title: "Settings", route: "/settings" },
-  ];
+
 
   // Overview cards data
   const overviewData = [
@@ -52,32 +51,17 @@ const PatientDashboard: React.FC = () => {
   return (
     <div className="relative w-screen h-screen flex">
       {/* Sidebar */}
-      <aside className="w-1/5 max-sm:hidden bg-gray-100 p-4 shadow-md">
-        <div className="text-xl font-semibold mb-6">E-Hospital</div>
-        <ul>
-          {navigation.map((item, idx) => (
-            <li
-              key={idx}
-              className="p-3 mb-3 rounded-lg hover:bg-gray-200 cursor-pointer"
-              onClick={() => handleNavigation(item.route)}
-            >
-              {item.title}
-            </li>
-          ))}
-        </ul>
-      </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 bg-white p-6">
+      <main className="flex-1 bg-white p-6 max-w-screen overflow-x-hidden pb-[100px] ">
         {/* Header Section */}
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold">Welcome, {patientName}!</h1>
-          <div className="flex items-center space-x-4">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/147/147142.png"
-              alt="Profile"
-              className="w-12 h-12 rounded-full"
-            />
+          <div className="flex items-center space-x-4 max-sm:hidden">
+            <OperationImageIcon 
+              height={38}
+              width={38}
+            url="https://cdn-icons-png.flaticon.com/512/147/147142.png"/>
             <div className="relative select-none">
               <button onClick={()=>setPopUp((prev)=>!prev)} 
               className={`p-2 rounded-md border 
