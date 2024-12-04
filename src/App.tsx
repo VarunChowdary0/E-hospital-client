@@ -16,6 +16,7 @@ import ManageAppointments from './pages/Appointments/ManageAppointments';
 import UpcomingAppointments from './pages/Appointments/UpCommingAppointments';
 import DoctorProfile from './pages/Profiles/DoctorProfile';
 import HomePage from './pages/HomePage';
+import RecentReports from './components/RecentReports';
 
 const App:React.FC = () => {
   return (
@@ -32,7 +33,7 @@ const App:React.FC = () => {
               <Route path="view" element={<UpcomingAppointments />} />
               <Route path="manage" element={<ManageAppointments/>} />
             </Route>
-            <Route path="medical-records" element={<div>Manage medical-records</div>} />
+            <Route path="recent-medical-records" element={<RecentReports/>} />
             <Route path="diagnosis" element={<div>Manage Diagnosis</div>} />
             <Route path="notification" element={<div>Notifications</div>} />
             <Route path="profile" element={<DoctorProfile/>} />

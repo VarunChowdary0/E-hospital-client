@@ -34,7 +34,7 @@ const DoctorDashBoard = () => {
         title: "Recent Reports",
         description: " Full body checkup and other 10 reports ready to view",
         icon: "https://cdn-icons-png.flaticon.com/512/2209/2209673.png",
-        route: "/doctor/medical-records",
+        route: "/doctor/recent-medical-records",
       },
       {
         title: "Manage Diagnosis",
