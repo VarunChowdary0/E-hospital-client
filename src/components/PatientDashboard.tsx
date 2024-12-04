@@ -1,53 +1,148 @@
-import React from 'react'
-import OpernationButtonComp from '../widgets/OpernationButtonComp'
-import OperationImageIcon from '../icons/OperationImageIcon'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import OverviewCard from "../widgets/OverviewCard";
 
-const PatientDashboard:React.FC = () => {
+const PatientDashboard: React.FC = () => {
+  const navigate = useNavigate();
+  const patientName = "Drake"; // Replace with dynamic data as needed
 
-  const operations:{
-    title : string,
-    icon : JSX.Element,
-  }[] = [
+  const [displayPopUp,setPopUp] = useState<boolean>(false); 
+  const handleNavigation = (route: string) => {
+    navigate(route);
+  };
+
+  // Sidebar Navigation Options
+  const navigation = [
+    { title: "Dashboard Overview", route: "/dashboard" },
+    { title: "Appointments", route: "/appointments" },
+    { title: "Medical Records", route: "/medical-records" },
+    { title: "Billing", route: "/billing" },
+    { title: "Doctors", route: "/doctors" },
+    { title: "Settings", route: "/settings" },
+  ];
+
+  // Overview cards data
+  const overviewData = [
     {
-      title : "Book Appointment",
-      icon : <OperationImageIcon height={30} width={30} url='https://cdn-icons-png.flaticon.com/512/3634/3634820.png'/>,
+      title: "Upcoming Appointments",
+      description: "Next appointment on Dec 5th with Dr. Smith",
+      icon: "https://cdn-icons-png.flaticon.com/512/3634/3634820.png",
+      route: "/appointments",
     },
     {
-      title : "Medical History",
-      icon : <OperationImageIcon height={30} width={30} url="https://cdn-icons-png.flaticon.com/512/11411/11411453.png"/>
+      title: "Recent Reports",
+      description: "Blood Test results ready to view",
+      icon: "https://cdn-icons-png.flaticon.com/512/2209/2209673.png",
+      route: "/medical-records",
     },
     {
-      title : "My Reports",
-      icon : <OperationImageIcon height={30} width={30} url="https://cdn-icons-png.flaticon.com/512/2209/2209673.png"/>
+      title: "Pending Bills",
+      description: "$300 outstanding",
+      icon: "https://cdn-icons-png.flaticon.com/512/1651/1651965.png",
+      route: "/billing",
     },
     {
-      title : "My Billing",
-      icon : <OperationImageIcon height={30} width={30} url="https://cdn-icons-png.flaticon.com/512/1651/1651965.png"/>
+      title: "Health Tips",
+      description: "Drink plenty of water and stay active!",
+      icon: "https://cdn-icons-png.flaticon.com/512/11210/11210018.png",
+      route: "/health-tips",
     },
-    {
-      title : "Tests and Checkups",
-      icon : <OperationImageIcon height={30} width={30} url="https://cdn-icons-png.flaticon.com/512/3127/3127109.png"/>
-    },
-    {
-      title : "Medical Services",
-      icon : <OperationImageIcon height={30} width={30} url="https://cdn-icons-png.flaticon.com/512/11210/11210018.png"/>
-    },
-  ]
+  ];
+
   return (
-    <div className=' center_ele bg-white h-fit max-sm:w-[87vw]
-    shadow-p border min-h-[400px] rounded-xl px-10 max-sm:px-5 py-8 w-[60vw]'>        
-        <div className=' flex gap-3 space-y-5 flex-wrap items-center justify-around'>
-          {
-            operations.map((ele,idx)=>
-                <OpernationButtonComp
-                      title={ele.title}
-                      icon={ele.icon}
-                />
-            )
-          }
-        </div>
-    </div>
-  )
-}
+    <div className="relative w-screen h-screen flex">
+      {/* Sidebar */}
+      <aside className="w-1/5 max-sm:hidden bg-gray-100 p-4 shadow-md">
+        <div className="text-xl font-semibold mb-6">E-Hospital</div>
+        <ul>
+          {navigation.map((item, idx) => (
+            <li
+              key={idx}
+              className="p-3 mb-3 rounded-lg hover:bg-gray-200 cursor-pointer"
+              onClick={() => handleNavigation(item.route)}
+            >
+              {item.title}
+            </li>
+          ))}
+        </ul>
+      </aside>
 
-export default PatientDashboard
+      {/* Main Content Area */}
+      <main className="flex-1 bg-white p-6">
+        {/* Header Section */}
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold">Welcome, {patientName}!</h1>
+          <div className="flex items-center space-x-4">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/147/147142.png"
+              alt="Profile"
+              className="w-12 h-12 rounded-full"
+            />
+            <div className="relative select-none">
+              <button onClick={()=>setPopUp((prev)=>!prev)} 
+              className={`p-2 rounded-md border 
+              ${displayPopUp?' bg-grey-400':''} transition-all active:bg-gray-400 bg-gray-50 hover:bg-gray-200`}>
+                Profile
+              </button>
+            {displayPopUp && 
+             <ul className="absolute right-0 mt-2 w-40 bg-white border rounded shadow-md">
+                <li
+                  className="p-2 hover:bg-gray-200 cursor-pointer"
+                  onClick={() => handleNavigation("/profile")}
+                >
+                  View Profile
+                </li>
+                <li
+                  className="p-2 hover:bg-gray-200 cursor-pointer"
+                  onClick={() => handleNavigation("/edit-profile")}
+                >
+                  Edit Profile
+                </li>
+                <li
+                  className="p-2 hover:bg-gray-200 cursor-pointer"
+                  onClick={() => handleNavigation("/logout")}
+                >
+                  Logout
+                </li>
+              </ul>}
+            </div>
+          </div>
+        </div>
+
+        {/* Overview Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+          {overviewData.map((data, idx) => (
+            <OverviewCard
+              key={idx}
+              title={data.title}
+              description={data.description}
+              icon={data.icon}
+              onClick={() => handleNavigation(data.route)}
+            />
+          ))}
+        </div>
+
+        {/* Detailed Sections */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-4">Manage Your Account</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {navigation.map((nav, idx) => (
+              <div
+                key={idx}
+                className="p-4 border rounded-lg shadow-md hover:shadow-lg transition"
+                onClick={() => handleNavigation(nav.route)}
+              >
+                <h3 className="text-lg font-medium">{nav.title}</h3>
+                <p className="text-sm text-gray-600">
+                  Access your {nav.title.toLowerCase()} section.
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default PatientDashboard;
