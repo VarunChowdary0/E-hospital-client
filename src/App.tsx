@@ -56,6 +56,7 @@ const App:React.FC = () => {
             <Route path="doctors" element={<AllDoctors/>} />
             <Route path="appointments" element={<div>Create Appointements</div>} />
             <Route path="notification" element={<div>Notifications</div>} />
+            <Route path="medical-records" element={<div>my  Medical Roecords</div>} />
             <Route path="my-medical-records" element={<MyReports/>} />
             <Route path="billing" element={<Billings/>} />
             <Route path="pending-billing" element={<PendingBills/>} />

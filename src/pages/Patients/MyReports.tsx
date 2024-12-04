@@ -56,7 +56,10 @@ const MyReports:React.FC = () => {
                         <div className=' h-full w-[3px] max-md:w-[2px] max-sm:w-[1px] bg-black'></div>
                         <div className=' px-5 truncate max-sm:px-2 w-3/12'>{ele.report}</div>
                         <div className=' h-full w-[3px] max-md:w-[2px] max-sm:w-[1px] bg-black'></div>
-                        <div className=' px-5 truncate max-sm:px-2 w-4/12 max-sm:w-fit'>{formattedDate}</div>
+                        <div className=' px-5 flex gap-2 truncate max-sm:px-2 
+                        items-center justify-start w-4/12 max-sm:w-fit'>
+                        <p className=' max-md:hidden text-sm font-4 font-thin'>Generated at</p>
+                        {formattedDate}</div>
                     </div>
                     );
                 })
