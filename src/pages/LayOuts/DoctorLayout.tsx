@@ -15,7 +15,7 @@ const DoctorLayout: React.FC = () => {
       },[])
   return (
     <div>
-      <div className="w-full h-full flex items-center justify-center">
+      <div className=" select-none w-full h-full flex items-center justify-center">
         <div className="relative w-screen h-screen flex">
           {/* Sidebar */}
           <Menu navigation={navigation} parent='doctor'/>    

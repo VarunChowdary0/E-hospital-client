@@ -32,8 +32,9 @@ const Appointments:React.FC = () => {
     };
   
     return (
-    <div >
-        <div className=' flex items-center justify-center w-full h-fit'>
+    <div className=' w-full py-7 px-7 max-sm:px-0'>
+        <div className=' text-3xl font-bold'>Appointments</div>
+        <div className=' mt-10 flex gap-6 max-sm:px-7 w-full h-fit'>
         {
             data.map((ele,idx)=>
                 <OverviewCard 
@@ -44,7 +45,9 @@ const Appointments:React.FC = () => {
             )
         }
         </div>
-        <Outlet/>
+        <div className=' w-full p-5 max-sm:p-0 rounded mt-10 '>
+            <Outlet/>
+        </div>
     </div>
   )
 }

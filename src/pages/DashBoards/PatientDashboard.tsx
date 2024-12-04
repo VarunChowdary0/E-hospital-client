@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import OverviewCard from "../../widgets/OverviewCard";
-import Menu from "../../components/Menu";
 import OperationImageIcon from "../../icons/OperationImageIcon";
 
 interface currentProps{
@@ -26,25 +25,25 @@ const PatientDashboard: React.FC<currentProps> = ({navigation}) => {
       title: "Upcoming Appointments",
       description: "Next appointment on Dec 5th with Dr. Smith",
       icon: "https://cdn-icons-png.flaticon.com/512/3634/3634820.png",
-      route: "/appointments",
+      route: "/patient/appointments",
     },
     {
       title: "Recent Reports",
       description: "Blood Test results ready to view",
       icon: "https://cdn-icons-png.flaticon.com/512/2209/2209673.png",
-      route: "/medical-records",
+      route: "/patient/medical-records",
     },
     {
       title: "Pending Bills",
       description: "$300 outstanding",
       icon: "https://cdn-icons-png.flaticon.com/512/1651/1651965.png",
-      route: "/billing",
+      route: "/patient/billing",
     },
     {
       title: "Health Tips",
       description: "Drink plenty of water and stay active!",
       icon: "https://cdn-icons-png.flaticon.com/512/11210/11210018.png",
-      route: "/health-tips",
+      route: "",
     },
   ];
 

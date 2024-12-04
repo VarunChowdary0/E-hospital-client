@@ -22,6 +22,11 @@ const Menu:React.FC <currentProps> = ({navigation,parent}) => {
     
     const nav_patient : naver[] = [
         {
+            title : 'dashboard',
+            route : "dashboard",
+            icon : <HomeIcon color='white'/>
+        },
+        {
             title : 'appointments',
             route : "appointments",
             icon : <OperationImageIcon url='https://cdn-icons-png.flaticon.com/512/3634/3634820.png' height={20} width={20}/>
