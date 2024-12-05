@@ -52,8 +52,6 @@ const MyReports:React.FC = () => {
                     <div 
                     className="p-4 max-sm:px-2 font-semibold hover:cursor-pointer flex border rounded-lg 
                         shadow-md hover:shadow-lg transition h-[55px] cursor-pointer">
-                        <div className=' px-5 truncate max-sm:px-2 flex-1 max-sm:w-fit'>{ele.name}</div>
-                        <div className=' h-full w-[3px] max-md:w-[2px] max-sm:w-[1px] bg-black'></div>
                         <div className=' px-5 truncate max-sm:px-2 w-3/12'>{ele.report}</div>
                         <div className=' h-full w-[3px] max-md:w-[2px] max-sm:w-[1px] bg-black'></div>
                         <div className=' px-5 flex gap-2 truncate max-sm:px-2 

@@ -25,28 +25,30 @@ const PendingBills: React.FC = () => {
            flex border rounded-lg 
           shadow-md hover:shadow-lg transition max-sm:text-sm h-[55px] cursor-pointer"
         >
-          <div className="px-5 truncate  max-sm:px-3 w-3/12">Patient Name</div>
+          <div className="px-5 truncate max-sm:hidden max-sm:px-3 w-3/12">Patient Name</div>
+          <div className="h-full w-[3px] max-sm:hidden max-sm:w-[1px] bg-black"></div>
+
+          <div className="px-5 truncate max-sm:w-1/3  max-sm:px-3 w-3/12">Report</div>
           <div className="h-full w-[3px] max-sm:w-[1px] bg-black"></div>
-          <div className="px-5 truncate  max-sm:px-3 w-3/12">Report</div>
+          <div className="px-5 truncate max-sm:w-1/3 max-sm:px-3 w-3/12">Issued At</div>
           <div className="h-full w-[3px] max-sm:w-[1px] bg-black"></div>
-          <div className="px-5 truncate  max-sm:px-3 w-3/12">Issued At</div>
-          <div className="h-full w-[3px] max-sm:w-[1px] bg-black"></div>
-          <div className="px-5 truncate  max-sm:px-3 w-2/12">Due Amount</div>
+          <div className="px-5 truncate max-sm:w-1/3 max-sm:px-3 w-2/12">Due Amount</div>
         </div>
         {bills.map((bill, idx) => (
           <div
             key={idx}
             className="p-4 mb-4 bg-gray-100 text-gray-800 flex border rounded-lg shadow-md hover:shadow-lg transition max-sm:text-sm h-[55px]"
           >
-            <div className="px-5 truncate  max-sm:px-3 w-3/12">{bill.name}</div>
-            <div className="h-full w-[3px] max-sm:w-[1px] bg-gray-300"></div>
-            <div className="px-5 truncate  max-sm:px-3 w-3/12">{bill.report}</div>
-            <div className="h-full w-[3px] max-sm:w-[1px] bg-gray-300"></div>
-            <div className="px-5 truncate  max-sm:px-3 w-3/12">
+            <div className="px-5 max-sm:hidden truncate  max-sm:px-3 w-3/12">{bill.name}</div>
+            <div className="h-full max-sm:hidden w-[3px] max-sm:w-[1px] bg-gray-300"></div>
+
+            <div className="px-5 truncate max-sm:w-1/3 max-sm:px-3 w-3/12">{bill.report}</div>
+            <div className="h-full w-[3px]  max-sm:w-[1px] bg-gray-300"></div>
+            <div className="px-5 truncate  max-sm:w-1/3 max-sm:px-3 w-3/12">
               {new Date(bill.at).toLocaleDateString()}
             </div>
             <div className="h-full w-[3px] max-sm:w-[1px] bg-gray-300"></div>
-            <div className="px-5 truncate  max-sm:px-3 w-2/12"> ₹ {bill.amount}</div>
+            <div className="px-5 truncate max-sm:w-1/3 max-sm:px-3 w-2/12"> ₹ {bill.amount}</div>
           </div>
         ))}
         <div className="text-right font-bold text-lg mt-4">

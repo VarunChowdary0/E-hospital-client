@@ -41,6 +41,12 @@ const DoctorDashBoard = () => {
         icon: "https://cdn-icons-png.flaticon.com/512/4228/4228719.png",
         route: "/doctor/diagnosis",
       },
+      {
+        title: "My Patient Records",
+        description: "View patient records and medical data",
+        icon: "https://cdn-icons-png.flaticon.com/512/4228/4228719.png",
+        route: "/doctor/patient-records",
+      },
 
     ];
     const [nowAppointment, setNowAppointment] = useState<{
