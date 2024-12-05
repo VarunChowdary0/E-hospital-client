@@ -20,6 +20,9 @@ import MyReports from './pages/Patients/MyReports';
 import Appointments from './pages/Doctors/Appointments/Appointments';
 import PendingBills from './pages/Patients/PendingBills';
 import Billings from './pages/Patients/Billings';
+import ManageDiagnisos from './pages/Doctors/Diagnosis/ManageDiagnisos';
+import StartSessionLayOut from './pages/Doctors/Session/StartSessionLayOut';
+import SessionPage from './pages/Doctors/Session/SessionPage';
 
 const App:React.FC = () => {
   return (
@@ -31,13 +34,16 @@ const App:React.FC = () => {
           <Route path='/login' element={<LoginPage/>}/>
           <Route path="/doctor/" element={<DoctorLayout />}>
             <Route path="dashboard" element={<DoctorDashBoard />} />
+            <Route path="start-session/" element={<StartSessionLayOut/>}>
+              <Route path=':id' element={<SessionPage/>}/>
+            </Route>
             <Route path="doctors" element={<AllDoctors/>} />
             <Route path='appointments/' element={<Appointments/>}>
               <Route path="view" element={<UpcomingAppointments />} />
               <Route path="manage" element={<ManageAppointments/>} />
             </Route>
             <Route path="recent-medical-records" element={<RecentReports/>} />
-            <Route path="diagnosis" element={<div>Manage Diagnosis</div>} />
+            <Route path="diagnosis" element={<ManageDiagnisos/>} />
             <Route path="notification" element={<div>Notifications</div>} />
             <Route path="profile" element={<DoctorProfile/>} />
             <Route path="settings" element={<div>Create Settings</div>} />

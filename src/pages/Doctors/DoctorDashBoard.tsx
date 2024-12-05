@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import OperationImageIcon from '../../icons/OperationImageIcon';
-import Menu from '../../components/Menu';
 import OverviewCard from '../../widgets/OverviewCard';
 import NotificationIcon from '../../icons/Icons/NotificationIcon';
 
@@ -44,6 +43,25 @@ const DoctorDashBoard = () => {
       },
 
     ];
+    const [nowAppointment, setNowAppointment] = useState<{
+      isNow: boolean;
+      data: {
+        patientName: string;
+        pid: string;
+        reason: string;
+        time: string;
+        doctorName?: string; // Matches the CardComponent props
+      };
+    }>({
+      isNow: true,
+      data: {
+        patientName: "Jake Paul",
+        pid: "0233232-c3342ed23-23d32d23-d23d2",
+        reason: "ADIS CheckUp",
+        time: "10:30 AM",
+        doctorName: "Dr. Smith",
+      },
+    });
   
     return (
     <main className="flex-1 bg-white p-6 max-w-screen overflow-x-hidden pb-[100px] ">
@@ -91,6 +109,21 @@ const DoctorDashBoard = () => {
 
       {/* Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        { nowAppointment.isNow &&
+          <OverviewCard
+            key={0}
+            title='Start Appointment'
+            description={`
+                ${nowAppointment.data.patientName} 
+                for 
+                ${nowAppointment.data.reason}
+                at ${nowAppointment.data.time}
+              `}
+            icon={'https://cdn-icons-png.flaticon.com/512/16766/16766509.png'}
+            onClick={()=>navigate('/doctor/start-session/'+nowAppointment.data.pid)}
+
+          />
+        }
         {overviewData.map((data, idx) => (
           <OverviewCard
             key={idx}

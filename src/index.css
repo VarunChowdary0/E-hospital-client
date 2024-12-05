@@ -11,4 +11,11 @@
     font-optical-sizing: auto;
     /* font-weight: ; */
     font-style: normal;
-  }
+}
+
+.box001{
+    display: none;
+}
+.inputer:active + .box001{
+    display: flex;
+}
