@@ -231,10 +231,18 @@ const SessionPage: React.FC<currentProps> = ({isSession}) => {
 
   return (
     <main className="flex-1 bg-white overflow-y-auto max-h-screen
-     p-6 max-w-screen overflow-x-hidden pb-[100px]">
+     p-6 max-w-screen overflow-x-hidden relative pb-[100px]">
+      <div className=" sticky top-5 right-0 flex justify-end ">
+        <div className=" text-white px-5 py-2 w-fit rounded-md
+        hover:cursor-pointer active:scale-95 transition-all
+        hover:shadow-lg bg-[#2e2e2e] border border-[#c2c1c1]
+        max-sm:px-2 max-sm:py-1 max-sm:text-xs max-sm:rounded-sm  shadow-md">
+          Make Notes
+        </div>
+      </div>
       {
         isSession ? 
-        <h1 className="text-3xl font-bold mb-9">Medical Session</h1>
+        <h1 className="text-3xl font-bold mb-9 ">Medical Session</h1>
         :
         <h1 className="text-3xl font-bold mb-9">{patient.name}'s Medical information</h1>
       }

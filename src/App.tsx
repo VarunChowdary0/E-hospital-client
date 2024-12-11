@@ -26,50 +26,46 @@ import StartSessionLayOut from './pages/Doctors/Session/StartSessionLayOut';
 import SessionPage from './pages/Doctors/Session/SessionPage';
 import ViewPatientRecords from './pages/Doctors/Diagnosis/ViewPatientRecords';
 
-const App:React.FC = () => {
-return (
-    <>
-    <Router>
-        <Routes>
-            <Route path='/' element={<HomePage/>}/>
-            <Route path='/patient/registration' element={<PatientRegistration/>}/>
-            <Route path='/login' element={<LoginPage/>}/>
-            <Route path="/doctor/" element={<DoctorLayout />}>
+const Doctor  = 
+        <Route path="/doctor/" element={<DoctorLayout />}>
                 <Route path="dashboard" element={<DoctorDashBoard />} />
                 <Route path="start-session/" element={<StartSessionLayOut/>}>
-                <Route path=':id' element={<SessionPage isSession/>}/>
+                    <Route path=':id' element={<SessionPage isSession/>}/>
                 </Route>
-            <Route path='view/' element={<Outlet/>}>
-                <Route path='patient/' element={<Outlet/>}>
-                    <Route path=':id' element={<SessionPage isSession={false}/>}/>
+                <Route path='view/' element={<Outlet/>}>
+                    <Route path='patient/' element={<Outlet/>}>
+                        <Route path=':id' element={<SessionPage isSession={false}/>}/>
+                    </Route>
+                    <Route path='report/' element={<Outlet/>}>
+                        <Route path=':id' element={<div>View Report Page</div>}/>
+                    </Route>
                 </Route>
-                <Route path='report/' element={<Outlet/>}>
-                    <Route path=':id' element={<div>View Report Page</div>}/>
+                <Route path="doctors" element={<AllDoctors/>} />
+                <Route path='appointments/' element={<Appointments/>}>
+                    <Route path="view" element={<UpcomingAppointments />} />
+                    <Route path="manage" element={<ManageAppointments/>} />
                 </Route>
-            </Route>
-            <Route path="doctors" element={<AllDoctors/>} />
-            <Route path='appointments/' element={<Appointments/>}>
-                <Route path="view" element={<UpcomingAppointments />} />
-                <Route path="manage" element={<ManageAppointments/>} />
-            </Route>
-            <Route path="recent-medical-records" element={<RecentReports/>} />
-            <Route path="diagnosis" element={<ManageDiagnisos/>} />
-            <Route path="patient-records" element={<ViewPatientRecords/>} />
-            <Route path="notification" element={<div>Notifications</div>} />
-            <Route path="profile" element={<DoctorProfile/>} />
-            <Route path="settings" element={<div>Create Settings</div>} />
-            </Route>
-            <Route path="/patient/" element={<PatientLayOut />}>
+                <Route path="recent-medical-records" element={<RecentReports/>} />
+                <Route path="diagnosis" element={<ManageDiagnisos/>} />
+                <Route path="patient-records" element={<ViewPatientRecords/>} />
+                <Route path="notification" element={<div>Notifications</div>} />
+                <Route path="profile" element={<DoctorProfile/>} />
+                <Route path="settings" element={<div>Create Settings</div>} />
+            </Route> ;
+
+const patient_naviagtion = [
+    { title: "Dashboard Overview", route: "/patient/dashboard" },
+    { title: "Appointments", route: "/patient/appointments" },
+    { title: "Medical Records", route: "/patient/medical-records" },
+    { title: "Billing", route: "/patient/billing" },
+    { title: "Doctors", route: "/patient/doctors" },
+    { title: "Settings", route: "/patient/settings" },
+    { title: "Profile", route: "/patient/profile" },
+    ];
+const Patient= 
+        <Route path="/patient/" element={<PatientLayOut />}>
                 <Route path="dashboard" element={<PatientDashboard 
-                navigation={[
-                        { title: "Dashboard Overview", route: "/patient/dashboard" },
-                        { title: "Appointments", route: "/patient/appointments" },
-                        { title: "Medical Records", route: "/patient/medical-records" },
-                        { title: "Billing", route: "/patient/billing" },
-                        { title: "Doctors", route: "/patient/doctors" },
-                        { title: "Settings", route: "/patient/settings" },
-                        { title: "Profile", route: "/patient/profile" },
-                        ]} />} />
+                navigation={patient_naviagtion } />} />
                 <Route path="doctors" element={<AllDoctors/>} />
                 <Route path="appointments" element={<div>Create Appointements</div>} />
                 <Route path="notification" element={<div>Notifications</div>} />
@@ -80,7 +76,18 @@ return (
                 <Route path="doctors" element={<div>Create doctors</div>} />
                 <Route path="settings" element={<div>Create Settings</div>} />
                 <Route path="profile" element={<div>Profile</div>} />
-            </Route>
+        </Route> ;
+const App:React.FC = () => {
+return (
+    <>
+    <Router>
+        <Routes>
+            <Route path='/' element={<HomePage/>}/>
+            <Route path='/patient/registration' element={<PatientRegistration/>}/>
+            <Route path='/login' element={<LoginPage/>}/>
+
+            {Doctor}
+            {Patient}
         </Routes>
     </Router>
     </>

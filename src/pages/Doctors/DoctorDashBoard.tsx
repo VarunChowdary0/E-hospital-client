@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import OperationImageIcon from '../../icons/OperationImageIcon';
-import OverviewCard from '../../widgets/OverviewCard';
 import NotificationIcon from '../../icons/Icons/NotificationIcon';
+import OverviewCard from '../../widgets/Cards/OverviewCard';
 
 const DoctorDashBoard = () => {
     const navigate = useNavigate();

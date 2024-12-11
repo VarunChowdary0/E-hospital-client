@@ -83,4 +83,5 @@
                                     General medicine
                                 ] 
                 ]  
+        Doctor-DashBoard : 
     }

@@ -22,7 +22,7 @@ const HomePage:React.FC = () => {
         },
         {
             title : "Register",
-            route : "/patient/register"
+            route : "/patient/registration"
         },
     ]
   return (

@@ -1,5 +1,6 @@
 import React from "react";
-import ImageIcon from "./ImageIcon";
+import ImageIcon from "../ImageIcon";
+
 
 interface Props {
   title: string;
