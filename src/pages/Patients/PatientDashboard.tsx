@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import OperationImageIcon from "../../icons/OperationImageIcon";
 import NotificationIcon from "../../icons/Icons/NotificationIcon";
 import OverviewCard from "../../widgets/Cards/OverviewCard";
@@ -58,9 +58,9 @@ const PatientDashboard: React.FC<currentProps> = ({navigation}) => {
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold">Welcome, {patientName}!</h1>
           <div className="flex items-center space-x-4 max-sm:hidden">
-          <div onClick={()=>handleNavigation("/patient/notification")} className=' fill-gray-700 scale-150'>
+          <Link to ="/patient/notification" className=' fill-gray-700 scale-150'>
             <NotificationIcon color='white' current={true}/>
-          </div>
+          </Link>
             <OperationImageIcon 
               height={38}
               width={38}
@@ -75,21 +75,18 @@ const PatientDashboard: React.FC<currentProps> = ({navigation}) => {
              <ul className="absolute right-0 mt-2 w-40 bg-white border rounded shadow-md">
                 <li
                   className="p-2 hover:bg-gray-200 cursor-pointer"
-                  onClick={() => handleNavigation("/profile")}
                 >
-                  View Profile
+                  <Link to={"/profile"}>View Profile</Link>
                 </li>
                 <li
                   className="p-2 hover:bg-gray-200 cursor-pointer"
-                  onClick={() => handleNavigation("/edit-profile")}
                 >
-                  Edit Profile
+                  <Link to={"/edit-profile"}>Edit Profile</Link>
                 </li>
                 <li
                   className="p-2 hover:bg-gray-200 cursor-pointer"
-                  onClick={() => handleNavigation("/logout")}
                 >
-                  Logout
+                  <Link to={"/logout"}>Logout</Link>
                 </li>
               </ul>}
             </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SettingsIcon from '../icons/Icons/SettingsIcon';
 import UserIcon from '../icons/Icons/UserIcon';
 import OperationImageIcon from '../icons/OperationImageIcon';
@@ -90,12 +90,8 @@ const Menu:React.FC <currentProps> = ({navigation,parent}) => {
                 }} className="text-xl font-semibold mb-6 hover:cursor-pointer">E-Hospital</div>
                 <ul>
                     {navigation.map((item, idx) => (
-                        <li
-                        key={idx}
-                        className="p-3 mb-3 rounded-lg hover:bg-gray-200 cursor-pointer"
-                        onClick={() => handleNavigation(item.route)}
-                        >
-                        {item.title}
+                        <li key={idx} className="p-3 mb-3 rounded-lg hover:bg-gray-200 cursor-pointer">
+                            <Link to={item.route}>{item.title}</Link>
                         </li>
                     ))}
                 </ul>
@@ -110,12 +106,8 @@ const Menu:React.FC <currentProps> = ({navigation,parent}) => {
                      nav_doctor
                     :[]
                 ).map((item, idx) => (
-                    <li
-                    key={idx}
-                    className="p-3 mb-3 rounded-lg cursor-pointer"
-                    onClick={() => handleNavigation(item.route)}
-                    >
-                    {item.icon}
+                    <li key={idx} className="p-3 mb-3 rounded-lg cursor-pointer">
+                    <Link to={item.route}>{item.icon}</Link>
                     </li>
                 ))}
             </ul>
